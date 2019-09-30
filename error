@@ -1,0 +1,25 @@
+/home/cs469/Assignment1/modules/simple-module.c:7:16: error: expected declaration specifiers or ‘...’ before string constant
+ MODULE_LICENCE("GPL");
+                ^~~~~
+In file included from /home/cs469/Assignment1/modules/simple-module.c:1:
+/home/cs469/Assignment1/modules/simple-module.c: In function ‘__exittest’:
+/home/cs469/Assignment1/modules/simple-module.c:24:13: error: returning ‘int (*)(void)’ from a function with incompatible return type ‘exitcall_t’ {aka ‘void (*)(void)’} [-Werror=incompatible-pointer-types]
+ module_exit(simple_exit)
+             ^~~~~~~~~~~
+./include/linux/module.h:138:11: note: in definition of macro ‘module_exit’
+  { return exitfn; }     \
+           ^~~~~~
+/home/cs469/Assignment1/modules/simple-module.c: At top level:
+./include/linux/module.h:139:7: warning: ‘cleanup_module’ alias between functions of incompatible types ‘void(void)’ and ‘int(void)’ [-Wattribute-alias]
+  void cleanup_module(void) __copy(exitfn) __attribute__((alias(#exitfn)));
+       ^~~~~~~~~~~~~~
+/home/cs469/Assignment1/modules/simple-module.c:24:1: note: in expansion of macro ‘module_exit’
+ module_exit(simple_exit)
+ ^~~~~~~~~~~
+/home/cs469/Assignment1/modules/simple-module.c:16:19: note: aliased declaration here
+ static int __exit simple_exit(void) {
+                   ^~~~~~~~~~~
+cc1: some warnings being treated as errors
+make[2]: *** [scripts/Makefile.build:281: /home/cs469/Assignment1/modules/simple-module.o] Error 1
+make[1]: *** [Makefile:1624: _module_/home/cs469/Assignment1/modules] Error 2
+make: *** [Makefile:3: all] Error 2
