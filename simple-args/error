@@ -1,0 +1,60 @@
+/home/cs469/Assignment1/modules/simple-args/simple-args.c:11:24: error: initialization of ‘char **’ from incompatible pointer type ‘char *’ [-Werror=incompatible-pointer-types]
+ static char **lyrics = "This is a lyric";
+                        ^~~~~~~~~~~~~~~~~
+In file included from ./include/linux/module.h:18,
+                 from /home/cs469/Assignment1/modules/simple-args/simple-args.c:1:
+/home/cs469/Assignment1/modules/simple-args/simple-args.c: In function ‘__check_lyrics’:
+./include/linux/moduleparam.h:147:27: error: returning ‘char ***’ from a function with incompatible return type ‘char **’ [-Werror=incompatible-pointer-types]
+  param_check_##type(name, &(value));       \
+                           ^
+./include/linux/moduleparam.h:337:68: note: in definition of macro ‘__param_check’
+  static inline type __always_unused *__check_##name(void) { return(p); }
+                                                                    ^
+./include/linux/moduleparam.h:147:2: note: in expansion of macro ‘param_check_charp’
+  param_check_##type(name, &(value));       \
+  ^~~~~~~~~~~~
+./include/linux/moduleparam.h:127:2: note: in expansion of macro ‘module_param_named’
+  module_param_named(name, name, type, perm)
+  ^~~~~~~~~~~~~~~~~~
+/home/cs469/Assignment1/modules/simple-args/simple-args.c:14:1: note: in expansion of macro ‘module_param’
+ module_param(lyrics, charp, 0000);
+ ^~~~~~~~~~~~
+In file included from ./include/linux/printk.h:7,
+                 from ./include/linux/kernel.h:15,
+                 from ./include/linux/list.h:9,
+                 from ./include/linux/module.h:9,
+                 from /home/cs469/Assignment1/modules/simple-args/simple-args.c:1:
+/home/cs469/Assignment1/modules/simple-args/simple-args.c: In function ‘simple_init’:
+./include/linux/kern_levels.h:5:18: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char **’ [-Wformat=]
+ #define KERN_SOH "\001"  /* ASCII Start Of Header */
+                  ^~~~~~
+./include/linux/kern_levels.h:14:19: note: in expansion of macro ‘KERN_SOH’
+ #define KERN_INFO KERN_SOH "6" /* informational */
+                   ^~~~~~~~
+/home/cs469/Assignment1/modules/simple-args/simple-args.c:23:10: note: in expansion of macro ‘KERN_INFO’
+   printk(KERN_INFO "%s\n", lyrics);
+          ^~~~~~~~~
+/home/cs469/Assignment1/modules/simple-args/simple-args.c:23:22: note: format string is defined here
+   printk(KERN_INFO "%s\n", lyrics);
+                     ~^
+In file included from ./include/linux/printk.h:7,
+                 from ./include/linux/kernel.h:15,
+                 from ./include/linux/list.h:9,
+                 from ./include/linux/module.h:9,
+                 from /home/cs469/Assignment1/modules/simple-args/simple-args.c:1:
+./include/linux/kern_levels.h:5:18: warning: format ‘%s’ expects a matching ‘char *’ argument [-Wformat=]
+ #define KERN_SOH "\001"  /* ASCII Start Of Header */
+                  ^~~~~~
+./include/linux/kern_levels.h:14:19: note: in expansion of macro ‘KERN_SOH’
+ #define KERN_INFO KERN_SOH "6" /* informational */
+                   ^~~~~~~~
+/home/cs469/Assignment1/modules/simple-args/simple-args.c:29:10: note: in expansion of macro ‘KERN_INFO’
+   printk(KERN_INFO "%s\n");
+          ^~~~~~~~~
+/home/cs469/Assignment1/modules/simple-args/simple-args.c:29:22: note: format string is defined here
+   printk(KERN_INFO "%s\n");
+                     ~^
+cc1: some warnings being treated as errors
+make[2]: *** [scripts/Makefile.build:281: /home/cs469/Assignment1/modules/simple-args/simple-args.o] Error 1
+make[1]: *** [Makefile:1624: _module_/home/cs469/Assignment1/modules/simple-args] Error 2
+make: *** [Makefile:3: all] Error 2
