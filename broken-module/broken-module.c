@@ -1,3 +1,5 @@
+
+
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/init.h>
@@ -7,8 +9,8 @@ MODULE_AUTHOR("Matthew Brousseau - brouss16");
 MODULE_LICENSE("GPL");
 
 static int __init simple_init(void) {
-	int *x1 = NULL;
-	int x2 = *x1;
+	int * null_pointer = 0;
+	int value = *null_pointer;
 	//Lyrics from Comfortably Numb by Pink Floyd
 	printk(KERN_INFO "Hello? Is there anybody in there? Just nod if you can hear me\n");
 	return 0;

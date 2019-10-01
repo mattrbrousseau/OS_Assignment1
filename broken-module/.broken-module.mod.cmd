@@ -1,0 +1,1 @@
+cmd_/home/cs469/Assignment1/modules/OS_Assignment1/broken-module/broken-module.mod := { echo  /home/cs469/Assignment1/modules/OS_Assignment1/broken-module/broken-module.o; echo; } > /home/cs469/Assignment1/modules/OS_Assignment1/broken-module/broken-module.mod
