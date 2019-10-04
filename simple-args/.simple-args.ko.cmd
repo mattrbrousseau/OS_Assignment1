@@ -1,0 +1,1 @@
+cmd_/home/cs469/Assignment1/OS_Assignment1/simple-args/simple-args.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/cs469/Assignment1/OS_Assignment1/simple-args/simple-args.ko /home/cs469/Assignment1/OS_Assignment1/simple-args/simple-args.o /home/cs469/Assignment1/OS_Assignment1/simple-args/simple-args.mod.o ;  true

@@ -1,2 +1,2 @@
-/home/cs469/Assignment1/modules/simple-args/simple-args.o
+/home/cs469/Assignment1/OS_Assignment1/simple-args/simple-args.o
 
